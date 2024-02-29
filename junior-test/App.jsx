@@ -10,6 +10,8 @@ export function App () {
     setOnClickFact(!onClickFact)
   }
 
+  // TODO: Fatarian los test Playwright es como cypress?
+
   return (
     <>
       <main>
