@@ -1,16 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useCatImage } from '../hooks/useCatImage'
 
 export function CatImage ({ word }) {
-  const [image, setImage] = useState('')
-  const API_URL = 'https://cataas.com/cat/says'
-
-  const updateImage = () => {
-    if (!word) return
-    console.log(word)
-    setImage(`${API_URL}/${word}`)
-  }
-
-  useEffect(updateImage, [word])
+  const { image } = useCatImage({ word })
 
   return (
     <>

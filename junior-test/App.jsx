@@ -4,10 +4,10 @@ import { useState } from 'react'
 
 export function App () {
   const [firstWord, setFirstWord] = useState('')
-  const [onClickFact, setonClickFact] = useState()
+  const [onClickFact, setOnClickFact] = useState()
 
   const renderFact = () => {
-    setonClickFact(!onClickFact)
+    setOnClickFact(!onClickFact)
   }
 
   return (
