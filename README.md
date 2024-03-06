@@ -1,2 +1,2 @@
 # rect-training-monorepo
-rect-training-monorepo
+react-training-monorepo
