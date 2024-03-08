@@ -4,8 +4,8 @@
 ## E-commerce
 
     - [✅] Muestra la lista de productos que viene de  un JSON
-    - [] Añadir un filtro por categoría
-    - [] Añadir un filtro por precio
+    - [✅] Añadir un filtro por categoría
+    - [✅] Añadir un filtro por precio
 
 ## Shopping Cart
 

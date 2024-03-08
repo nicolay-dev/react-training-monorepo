@@ -1,0 +1,23 @@
+.list-products {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+
+}
+
+.product-image {
+    width: auto;
+    max-height: 150px;
+}
+
+.item-list-product {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.item-list-product > h2 {
+    font-size: 16px;
+}
