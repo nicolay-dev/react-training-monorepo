@@ -3,7 +3,6 @@ import './styles/Filters.css'
 import { FiltersContext } from '../context/FiltersContext'
 
 export function Filters () {
-  //   const [filters, setFilters] = useState({ minPrice: 0, category: '' })
   const { selectId } = useId()
   const filtersContext = useContext(FiltersContext)
 

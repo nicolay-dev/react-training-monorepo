@@ -21,3 +21,7 @@
 .item-list-product > h2 {
     font-size: 16px;
 }
+
+.remove-cart-btn {
+    background-color: red;
+}

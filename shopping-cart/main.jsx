@@ -6,9 +6,7 @@ import React from 'react'
 const root = createRoot(document.getElementById('app'))
 
 root.render(
-  <React.StrictMode>
-    <FiltersProvider>
-      <App />
-    </FiltersProvider>
-  </React.StrictMode>
+  <FiltersProvider>
+    <App />
+  </FiltersProvider>
 )

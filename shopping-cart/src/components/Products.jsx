@@ -1,39 +1,29 @@
-import productsMock from '../mocks/products.json'
-import { useState, useContext, useEffect } from 'react'
+import { ShoppingCart } from './ShoppingCart'
+import { useProducts } from './hooks/useProducts'
+import { useContext } from 'react'
+import { CartContext } from '../context/CartContext'
 import './styles/Products.css'
-import { FiltersContext } from '../context/FiltersContext'
 
 export function Products () {
-  const [products, setProducts] = useState(productsMock.products)
-  const filtersContext = useContext(FiltersContext)
+  const { products, getProductById, cleanCartProperty } = useProducts()
+  const { addToCart, removeFromCart } = useContext(CartContext)
 
-  useEffect(() => {
-    let filteredProducts = products
-    filteredProducts = productsMock.products.filter((product) => {
-      // console.log(product.category)
-      console.log(filtersContext.category)
-
-      return (
-        (product.category.includes(filtersContext.category.toLowerCase()) ||
-          filtersContext.category === 'all') &&
-        product.price >= filtersContext.minPrice
-      )
-    })
-    console.log(filteredProducts)
-    setProducts(filteredProducts)
+  const handleAddCart = (event) => {
+    const product = getProductById(event.target.value)
+    product.isOnCart ? removeFromCart(product) : addToCart(product)
   }
-  , [filtersContext.minPrice, filtersContext.category])
 
   return (
     <section>
+      <ShoppingCart cleanCartProducts={cleanCartProperty} />
       <ul className='list-products'>
         {products.map((product) => {
           return (
-            <li className='item-list-product' key={product.id}>
+            <li className='item-list-product' key={product?.id}>
               <h2>{product?.title}</h2>
-              <img className='product-image' src={product.image} alt={`The image of a ${product.title}`} />
+              <img className='product-image' src={product?.image} alt={`The image of a ${product?.title}`} />
               <h2>${product?.price}</h2>
-              <button>Add to cart</button>
+              <button className={product?.isOnCart ? 'remove-cart-btn' : ''} onClick={handleAddCart} value={product?.id}>Add to cart</button>
             </li>
           )
         })}
